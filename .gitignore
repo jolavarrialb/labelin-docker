@@ -1,0 +1,9 @@
+.idea
+.idea/*
+/src
+/src/*
+composer.env
+docker-compose.yml
+global.env
+
+docker/nginx/ssl
