@@ -18,8 +18,12 @@ A collection of Docker images for running Magento 2 through nginx and on the com
 
 
     #set - M2SETUP_INSTALL_DB=true in service cli in docker-compose.yml
+    
     docker-compose run cli magento-installer
+    
     #set - M2SETUP_INSTALL_DB=false in service cli in docker-compose.yml
+    
+    
     docker-compose up --build
     docker-compose stop
     docker-compose up web
