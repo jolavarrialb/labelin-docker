@@ -51,10 +51,9 @@ services:
     volumes:
       - dbdata:/var/lib/mysql
     environment:
-      - "MYSQL_USER=homestead"
-      - "MYSQL_PASSWORD=secret"
-      - "MYSQL_ROOT_PASSWORD=secret"
-      #- "MYSQL_DATABASE=labelin"
+      - "MYSQL_USER="
+      - "MYSQL_PASSWORD="
+      - "MYSQL_ROOT_PASSWORD="
 
   cli:
     hostname: cli.labelin.docker
@@ -73,17 +72,17 @@ services:
     environment:
       - M2SETUP_INSTALL_DB=false
       - M2SETUP_DB_HOST=db
-      - M2SETUP_DB_NAME=*******
-      - M2SETUP_DB_USER=*******
-      - M2SETUP_DB_PASSWORD=*******
+      - M2SETUP_DB_NAME=
+      - M2SETUP_DB_USER=
+      - M2SETUP_DB_PASSWORD=
       - M2SETUP_BASE_URL=http://labelin.docker:8080/
       # - M2SETUP_SECURE_BASE_URL=https://labelin.docker:8080/
-      - M2SETUP_BACKEND_FRONTNAME=*******
-      - M2SETUP_ADMIN_FIRSTNAME=*******
-      - M2SETUP_ADMIN_LASTNAME=*******
-      - M2SETUP_ADMIN_EMAIL=*******
-      - M2SETUP_ADMIN_USER=*******
-      - M2SETUP_ADMIN_PASSWORD=*******
+      - M2SETUP_BACKEND_FRONTNAME=
+      - M2SETUP_ADMIN_FIRSTNAME=
+      - M2SETUP_ADMIN_LASTNAME=
+      - M2SETUP_ADMIN_EMAIL=
+      - M2SETUP_ADMIN_USER=
+      - M2SETUP_ADMIN_PASSWORD=
       - M2SETUP_VERSION=2.3.5-p1
       # - M2SETUP_USE_SAMPLE_DATA=true
 
