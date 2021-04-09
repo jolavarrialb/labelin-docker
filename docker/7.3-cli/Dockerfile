@@ -1,4 +1,4 @@
-FROM php:7.3-cli
+FROM php:7.3.27-cli
 
 # Install dependencies
 RUN apt-get update \
@@ -68,7 +68,10 @@ VOLUME /root/.composer/cache
 ADD etc/php-cli.ini /usr/local/etc/php/conf.d/zz-magento.ini
 
 # Get composer installed to /usr/local/bin/composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+#RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN curl -O "https://getcomposer.org/download/1.10.13/composer.phar"
+RUN chmod a+x composer.phar
+RUN mv composer.phar /usr/local/bin/composer
 
 # Install n98-magerun2.phar and move to /usr/local/bin/
 RUN curl -O https://files.magerun.net/n98-magerun2.phar && chmod +x ./n98-magerun2.phar && mv ./n98-magerun2.phar /usr/local/bin/
