@@ -11,3 +11,8 @@ global.env
 .php_cs.cache
 
 docker/nginx/ssl
+.ssh/
+.composer/
+html/
+labelin/
+logs/
