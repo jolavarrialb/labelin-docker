@@ -34,7 +34,8 @@ RUN docker-php-ext-install \
   sockets
 
 # Install Xdebug (but don't enable)
-RUN pecl install -o -f xdebug
+RUN pecl install -o -f xdebug \
+&& docker-php-ext-enable xdebug
 
 ENV PHP_MEMORY_LIMIT 2G
 ENV PHP_ENABLE_XDEBUG false

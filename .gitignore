@@ -2,8 +2,12 @@
 .idea/*
 /src
 /src/*
+/magento-coding-standard
+/magento-coding-standard/*
 composer.env
 docker-compose.yml
 global.env
+
+.php_cs.cache
 
 docker/nginx/ssl
