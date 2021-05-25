@@ -92,8 +92,6 @@ services:
     command: run-cron
     env_file:
       - ./global.env    
-    environment:
-      - ENABLE_SENDMAIL=true
     volumes_from:
       - appdata
     links:

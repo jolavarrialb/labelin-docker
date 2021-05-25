@@ -46,7 +46,6 @@ Configuration is driven through environment variables.  A comprehensive list of 
 * `COMPOSER_BITBUCKET_KEY` - Optional - Your Bitbucket OAuth key ([how to get](https://confluence.atlassian.com/bitbucket/oauth-on-bitbucket-cloud-238027431.html))
 * `COMPOSER_BITBUCKET_SECRET` - Optional - Your Bitbucket OAuth secret
 * `DEBUG` - Toggles tracing in the bash commands when exectued; nothing to do with Magento`
-* `PHP_ENABLE_XDEBUG` - When set to `true` it will include the Xdebug ini file as part of the PHP configuration, turning it on. It's recommended to only switch this on when you need it as it will slow down the application.
 * `UPDATE_UID_GID` - If this is set to "true" then the uid and gid of `www-data` will be modified in the container to match the values on the mounted folders.  This seems to be necessary to work around virtualbox issues on OSX.
 
 A sample `docker-compose.yml` is provided in this repository.
@@ -74,17 +73,11 @@ Shell access to a CLI container can be triggered by running:
 
 All images have sendmail installed for emails, however it is not enabled by default. To enable sendmail, use the following environment variable:
 
-    ENABLE_SENDMAIL=true
-
 *Note:* If sendmail has been enabled, make sure the container has a hostname assigned using the `hostname` field in `docker-compose.yml` or `--hostname` parameter for `docker run`. If the container does not have a hostname set, sendmail will attempt to discover the hostname on startup, blocking for a prolonged period of time.
 
 ## Implementation Notes
 
 * In order to achieve a sane environment for executing commands in, a `docker-environment` script is included as the `ENTRYPOINT` in the container.
-
-## xdebug Usage
-
-To enable xdebug, you will need to toggle the `PHP_ENABLE_XDEBUG` environment variable to `true` in `global.env`. Then when using docker-compose you will need to restart the fpm container using `docker-compose up -d`, or stopping and starting the container.
 
 ## Varnish
 

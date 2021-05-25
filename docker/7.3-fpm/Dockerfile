@@ -8,9 +8,7 @@ RUN apt-get update \
     libjpeg62-turbo-dev \ 
     libmcrypt-dev \ 
     libpng-dev \ 
-    libxslt1-dev \ 
-    sendmail-bin \ 
-    sendmail \ 
+    libxslt1-dev \
     sudo \ 
     libzip-dev
 
@@ -33,19 +31,12 @@ RUN docker-php-ext-install \
   pcntl \ 
   sockets
 
-# Install Xdebug (but don't enable)
-RUN pecl install -o -f xdebug \
-&& docker-php-ext-enable xdebug
-
 ENV PHP_MEMORY_LIMIT 2G
 ENV PHP_ENABLE_XDEBUG false
 ENV MAGENTO_ROOT /var/www/magento
 
 ENV DEBUG false
 ENV UPDATE_UID_GID false
-
-ADD etc/php-xdebug.ini /usr/local/etc/php/conf.d/zz-xdebug-settings.ini
-ADD etc/mail.ini /usr/local/etc/php/conf.d/zz-mail.ini
 
 ADD docker-entrypoint.sh /docker-entrypoint.sh
 
