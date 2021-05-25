@@ -45,8 +45,6 @@ services:
       - ./global.env
     volumes_from:
       - appdata
-    links:
-      - db
 
   appdata:
     image: tianon/true
